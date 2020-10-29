@@ -24,7 +24,7 @@
 		 <main class="main">
 			<aside class="sidebar">
 				<div class="menu_logo">
-					<img class="menu_top_logo" src="/images/trainer/header-logo/IEUK-logo.png" alt="logo left">
+					<img class="menu_top_logo" src="/images/teacher/header-logo/IEUK-logo.png" alt="logo left">
 				</div>
 				<div class="scrollbar-inner">
 					<ul class="navigation">

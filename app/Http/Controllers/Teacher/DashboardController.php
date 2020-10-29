@@ -44,8 +44,8 @@ class DashboardController extends Controller
 		$request_payload['token_app_type'] 	= "tesol";
 		$api = "get_tesol_profile";
     	$profileList = \App\helper::curl_get($api,$request_payload);
-    	dd($profileList);
-		return response()->view('trainer.profile',compact('profileList'));
+    	// dd($profileList);
+		return response()->view('teacher.profile',compact('profileList'));
     }
     
     public function editProfile(Request $request) {

@@ -60,12 +60,12 @@
 														<div class="col-sm-12 col-md-5 col-lg-4 col-xl-3">
 															<div class="row feedback-icon">
 																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 p-0 text-center">
-																	<label class="custom-control custom-radio bold-label">Disagree</label>
+																	<label class="custom-control custom-radio bold-label">Strongly disagree</label>
 																</div>
-																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">Disagree</div>
+																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">Agree</div>
 																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 p-0 text-center">
-																	<label class="custom-control custom-radio bold-label">Agree</label>
+																	<label class="custom-control custom-radio bold-label">Strongly agree</label>
 																</div>
 															</div>
 														</div>
@@ -359,12 +359,17 @@
 			var i=0;
 			var objects = {};
 			$('.emojiparent').each(function(){
-				// if(i==0){
-					
-				// 	objects = {answer_pos: $(this).find(".active").attr("data"),question_id:$('#add_id').val(),answer:$('#additional').val()};
-				// }else{
-					objects = {answer_pos: $(this).find(".active").attr("data"),question_id:$(this).attr("data"),answer:"good"};
-				// }
+				var ans = "";
+				if($(this).find(".active").attr("data") == 1){
+					ans = "Strongly disagree";
+				}else if($(this).find(".active").attr("data") == 2){
+					ans = "Disagree";
+				}else if($(this).find(".active").attr("data") == 3){
+					ans = "Agree";
+				}else if($(this).find(".active").attr("data") == 4){
+					ans = "strongly agree";
+				}
+				objects = {answer_pos: $(this).find(".active").attr("data"),question_id:$(this).attr("data"),answer:ans};
 				hash.push(objects);
 				i++;
 			});

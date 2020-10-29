@@ -20,7 +20,7 @@
 						
 						<div class="col-sm-6 col-md-5 col-lg-4 col-xl-4">
 							<div class="custom-select-dropdown">
-								<select>
+								<select  id="group">
 									@foreach(session::get('group')[0] as $group)
 										<option>{{$group['group_name']}}</option>
 									@endforeach
@@ -50,59 +50,77 @@
 									<div class="card rounded20 box-shadow">
 										<div class="card-block">
 											<form>
-											<div class="row">
-												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+											<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 													<div class="row mb-3 hidden-sm-down">
 														<div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
 															<label class="feedback-question"></label>
 														</div>
+
+
 														<div class="col-sm-12 col-md-5 col-lg-4 col-xl-3">
 															<div class="row feedback-icon">
 																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 p-0 text-center">
-																	<label class="custom-control custom-radio bold-label">Disagree</label>
+																	<label class="custom-control custom-radio bold-label">Strongly disagree</label>
 																</div>
-																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">Disagree</div>
+																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">Agree</div>
 																<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 p-0 text-center">
-																	<label class="custom-control custom-radio bold-label">Agree</label>
+																	<label class="custom-control custom-radio bold-label">Strongly agree</label>
 																</div>
 															</div>
 														</div>
 													</div>
-													@foreach($getFeedBack['result'] as $key=>$feedbackQue)
+													@foreach($getQueWithAns['result'] as $key=>$feedbackQue)
+
 														@if($feedbackQue['question_type'] == "emoji")
-															<div class="row mb-3 emojiparent" data="{{$feedbackQue['_id']}}">
+															<div class="row mb-3 emojiparent" data="{{$feedbackQue['question_id']}}">
 																<div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
 																	<label class="feedback-question">{{$feedbackQue['question']}}</label>
 																</div>
 																<div class="col-sm-12 col-md-5 col-lg-4 col-xl-3">
 																	<div class="row feedback-icon" id="feedback_icon_parent_{{$key}}" data="{{$key}}">
 																		
-																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" data="0">
+																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center <?php echo $feedbackQue['answer_pos']==1?"active":"";?>" data="1">
 																			<label class="custom-control custom-radio" id="parent_{{$key}}">
 																				<input type="radio" name="radio-inline" id="q1-1" class="custom-control-input" >
-																				<img src="/images/trainer/emoji/1.png" class="q1-1" width="20">
+																				@if($feedbackQue['answer_pos']==1)
+																					<img src="/images/trainer/emoji/11.png" class="q1-1" width="20">
+																				@else
+																					<img src="/images/trainer/emoji/1.png" class="q1-1" width="20">
+																				@endif
 																			</label>
 																		</div>
 																		
-																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center"  data="1">
+																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center <?php echo $feedbackQue['answer_pos']==2?"active":"";?>"  data="2">
 																			<label class="custom-control custom-radio" id="parent1_{{$key}}">
 																				<input type="radio" name="radio-inline" id="q1-2" class="custom-control-input">
-																				<img src="/images/trainer/emoji/2.png" class="q1-2" width="20">
+																				@if($feedbackQue['answer_pos']==2)
+																					<img src="/images/trainer/emoji/22.png" class="q1-2" width="20">
+																				@else
+																					<img src="/images/trainer/emoji/2.png" class="q1-2" width="20">
+																				@endif
 																			</label>
 																		</div>
 																		
-																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" data="2">
+																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center <?php echo $feedbackQue['answer_pos']==3?"active":"";?>" data="3">
 																			<label class="custom-control custom-radio" id="parent2_{{$key}}">
 																				<input type="radio" name="radio-inline" id="q1-3" class="custom-control-input">
-																				<img src="/images/trainer/emoji/3.png" class="q1-3" width="20">
+																				@if($feedbackQue['answer_pos']==3)
+																					<img src="/images/trainer/emoji/33.png" class="q1-3" width="20">
+																				@else
+																					<img src="/images/trainer/emoji/3.png" class="q1-3" width="20">
+																				@endif
 																			</label>
 																		</div>
 
-																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" data="3">
+																		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center <?php echo $feedbackQue['answer_pos']==4?"active":"";?>" data="4">
 																			<label class="custom-control custom-radio" id="parent3_{{$key}}">
 																				<input type="radio" name="radio-inline" id="q1-4" class="custom-control-input">
-																				<img src="/images/trainer/emoji/4.png" class="q1-4" width="20">
+																				@if($feedbackQue['answer_pos']==4)
+																					<img src="/images/trainer/emoji/44.png" class="q1-4" width="20">
+																				@else
+																					<img src="/images/trainer/emoji/4.png" class="q1-4" width="20">
+																				@endif
 																			</label>
 																		</div>
 
@@ -112,16 +130,16 @@
 														@endif
 													@endforeach
 
-													@foreach($getFeedBack['result'] as $key=>$feedbackQue)
+													@foreach($getQueWithAns['result'] as $key=>$feedbackQue)
 														@if($feedbackQue['question_type'] == "text_box")										
 															<div class="row mb-3">
 																<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-																	<input type="hidden" value="{{$feedbackQue['_id']}}" id="add_id">
+																	<input type="hidden" value="{{$feedbackQue['question_id']}}" id="add_id">
 																	<label class="feedback-question">{{$feedbackQue['question']}}</label>
 																</div>
 																<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 																	<div class="form-group rounded10 textarea-box-shadow mb-0">
-																		<textarea class="form-control scrollbar-inner" rows="5" placeholder="Write something here .........." id="additional"></textarea>
+																		<textarea class="form-control scrollbar-inner" rows="5" placeholder="Write something here .........." id="additional">{{$feedbackQue['answer']}}</textarea>
 																		<i class="form-group__bar"></i>
 																	</div>
 																</div>
@@ -131,306 +149,91 @@
 													<div class="btn-demo text-center">
 														<button type="button" class="btn btn-save waves-effect submit">Submit</button>
 													</div>
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center" id="feedbackerror" style="display: none;">
+														<span class="notify-sucsess"><i class="zmdi zmdi-check"></i> Successfully Saved</span>
+													</div>
 												</div>
-											</div>
 											</form>
 										</div>
 									</div>
 								</div>
+								
 								<div class="tab-pane fade" id="teacher-feedback-report" role="tabpanel">
 									<div class="card rounded20 box-shadow">
 										<div class="card-block">
+										@if(!is_null($getFeedBackTrainer))
 											<form>
 											<div class="row">
 												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-													<div class="row">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer was knowledgeable in the field of English language teaching and understood the topics</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
+
+													@foreach($getFeedBackTrainer['result'] as $key=>$feedback)
+														@if($feedback['question_type'] == "emoji")	
+															<div class="row">
+																<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
+																	<label class="feedback-question">{{$feedback['question']}}</label>
+																</div>
+
+																<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+																	<div class="feedback-icon-fix">
+																		<label class="custom-control custom-radio">
+																			<input type="radio" name="radio-inline" class="custom-control-input">
+																			<img src="/images/trainer/emoji/11.png" width="20">
+																			<span class="custom-control-description">{{$feedback['ans_pos_0']}}</span>
+																		</label>
+																		<label class="custom-control custom-radio">
+																			<input type="radio" name="radio-inline" class="custom-control-input">
+																			<img src="/images/trainer/emoji/22.png" width="20">
+																			<span class="custom-control-description">{{$feedback['ans_pos_1']}}</span>
+																		</label>
+																		<label class="custom-control custom-radio">
+																			<input type="radio" name="radio-inline" class="custom-control-input">
+																			<img src="/images/trainer/emoji/33.png" width="20">
+																			<span class="custom-control-description">{{$feedback['ans_pos_2']}}</span>
+																		</label>
+																		<label class="custom-control custom-radio">
+																			<input type="radio" name="radio-inline" class="custom-control-input">
+																			<img src="/images/trainer/emoji/44.png" width="20">
+																			<span class="custom-control-description">{{$feedback['ans_pos_3']}}</span>
+																		</label>
+																	</div>
+																</div>
 															</div>
-														</div>
-													</div>
-													<div class="row mb-3">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer was well prepared, organised and managed time well</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer was able to develop the points made in the presentation slides and relate them to classroom situations.</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer was able to answer our questions or direct us to appropriate sources of information.</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row mb-3">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer gave trainees an opportunity to ask questions and contribute.</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row mb-3">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The trainer listened to and respected the trainees' contributions.</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row mb-3">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">The session was conducted at an appropriate pace.</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="row mb-3">
-														<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-															<label class="feedback-question">Trainer feedback was relevent and timely</label>
-														</div>
-														<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-															<div class="feedback-icon-fix">
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/11.png" width="20">
-																	<span class="custom-control-description">10%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/22.png" width="20">
-																	<span class="custom-control-description">20%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/33.png" width="20">
-																	<span class="custom-control-description">30%</span>
-																</label>
-																<label class="custom-control custom-radio">
-																	<input type="radio" name="radio-inline" class="custom-control-input">
-																	<img src="/images/trainer/emoji/44.png" width="20">
-																	<span class="custom-control-description">40%</span>
-																</label>
-															</div>
-														</div>
-													</div>
+														@endif
+													@endforeach
 													
-													<div class="row mb-3 tfr-comment-block">
-														<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-															<div class="form-group rounded10 textarea-box-shadow mb-0 pb-3">
-																<h5>View additional comments and suggestions</h5>
-																<span class="scrollbar-inner">
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here.</p>
+													
+													@foreach($getFeedBackTrainer['result'] as $key=>$feedback)
+														@if($feedback['question_type'] == "text_box")	
+															<div class="row mb-3 tfr-comment-block">
+																<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+																	<div class="form-group rounded10 textarea-box-shadow mb-0 pb-3">
+																		<h5>View additional comments and suggestions</h5>
+																		<span class="scrollbar-inner">
+																			@foreach($feedback['text_box'] as $key=>$text)
+																				<div class="additional_comments_view">
+																					<p><span></span></p>
+																					<p>
+																						{{$text}}
+																					</p>
+																				</div>
+																			@endforeach
+																		</span>
 																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here.</p>
-																	</div>
-																	<div class="additional_comments_view">
-																		<p><span></span></p>
-																		<p>Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. Comments made by teachers here. DONE.</p>
-																	</div>
-																</span>
+																</div>
 															</div>
-														</div>
-													</div>
+														@endif
+													@endforeach
+
 												</div>
 											</div>
 											</form>
+											@else
+												<h2>No found teacher feedback Report.</h2>
+											@endif
 										</div>
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
@@ -438,10 +241,21 @@
 			</section>
 		</main>
 @stop	
+@section('style')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.css">  
+@stop	
 @section('scripts')
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="{{ asset('js/custom.select.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.js"></script>
+<script src="{{ asset('js/trainer/custom.js') }}"></script>
 <script type="text/javascript">
+
+		$(document).ready(function(){
+			$('#group').select2();
+		});
+		$(document).on('change','#group',function(){
+			location.href = "?id="+$(this).val();
+		});
+
 		function fadeIN(selector){
 			$('.'+selector).css("display","block");
 		}
@@ -473,7 +287,7 @@
 					api:"add_ppt_note",
 				}
 				$.ajax({
-				url: url + "/addnote",
+				url: url + "teacher/addnote",
 				type: 'post',
 				dataType: 'json',
 				contentType: 'application/json',
@@ -490,9 +304,9 @@
 		function removeActive(dataid){
 
 			$('#feedback_icon_parent_'+dataid).children().removeClass("active");
-			$('#feedback_icon_parent_'+dataid).children().removeClass("active");
-			$('#feedback_icon_parent_'+dataid).children().removeClass("active");
-			$('#feedback_icon_parent_'+dataid).children().removeClass("active");
+			// $('#feedback_icon_parent_'+dataid).children().removeClass("active");
+			// $('#feedback_icon_parent_'+dataid).children().removeClass("active");
+			// $('#feedback_icon_parent_'+dataid).children().removeClass("active");
 		}
 		$(document).on('change','.select2',function(){
 			location.href = "?id="+$(this).val();
@@ -550,21 +364,35 @@
 			var i=0;
 			var objects = {};
 			$('.emojiparent').each(function(){
-				if(i==0){
-					objects = {answer_pos: 0,question_id:$('#add_id').val(),answer:$('#additional').val()};
-				}else{
-					objects = {answer_pos: $(this).find(".active").attr("data"),question_id:$(this).attr("data"),answer:"good"};
+				var ans = "";
+				if($(this).find(".active").attr("data") == 1){
+					ans = "Strongly disagree";
+				}else if($(this).find(".active").attr("data") == 2){
+					ans = "Disagree";
+				}else if($(this).find(".active").attr("data") == 3){
+					ans = "Agree";
+				}else if($(this).find(".active").attr("data") == 4){
+					ans = "strongly agree";
 				}
+			
+				objects = {answer_pos: $(this).find(".active").attr("data"),question_id:$(this).attr("data"),answer:ans};
 				hash.push(objects);
 				i++;
 			});
+				objects = {answer_pos: 0,question_id:$('#add_id').val(),answer:$('#additional').val()};
+				hash.push(objects);
+				$('#feedbackerror').text("Feedback added Successfully");
+				$('#feedbackerror').css("color","green");
+				$('#feedbackerror').fadeIn();
 			$.ajax({
 				url: url + "teacher/addfeedback",
 				type: 'post',
 				dataType: 'json',
 				contentType: 'application/json',
 				success: function (data) {
-				   console.log(data);
+				   setTimeout(function(){
+						$('#feedbackerror').fadeOut();
+				   },3000)
 				},
 				data: JSON.stringify(hash),
 				headers: {
