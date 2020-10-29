@@ -1,0 +1,539 @@
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+.login_page_bg {
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	height: 100vh !important;
+	width: 100% !important;
+	display: flex !important;
+}
+
+.login_left_block {
+	max-width: 645px;
+	padding-top: 60px;
+	padding-left: 80px;
+}
+
+.login_left_text {
+  max-width: 460px;
+	padding-top: 80px;
+}
+
+.login_left_text_title {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 65px;
+	max-width: 380px;
+}
+
+.login_left_text_description {
+	font-size: 22px;
+	font-weight: 400;
+	font-style: italic;
+	padding-top: 40px;
+	line-height: 26px;
+}
+
+.login_form_block .fa-user-circle {
+	font-size: 70px;
+	color: #d1d1d1;
+}
+
+.login_form_block .action-btn {
+  margin-top: 80px;
+}
+
+form{
+  width: 280px;
+  margin: 0 0 0 10%;
+}
+
+.login_form_block h2 {
+	margin: 30px 0 20px 0;
+	font-size: 36px;
+  color: #8694b5;
+  font-weight: 400;
+  font-family: 'calibri';
+}
+
+.login_form_block h2 span {
+	font-weight: 400;
+}
+
+.login_form_block .input-div{
+position: relative;
+margin: 10px 0;
+padding: 5px 0;
+border-bottom: 1px solid #b4c6de;
+}
+
+.sub_title_text {
+  color: #41a5d3!important;
+  font-family: 'Myriad Pro Semibold'!important;
+}
+
+.sub_title_sub_text {
+  font-weight: 300!important;
+  color: #2a485e!important;
+  font-family: 'Myriad Pro Light'!important;
+}
+
+.head_title_text {
+  font-family: 'Myriad Pro Regular'!important;
+  color: #8694b5;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.i {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.i i {
+  transition: .3s;
+}
+
+.input-div > div {
+  height: 45px;
+}
+
+.input-div > div > h5 {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 15px;
+	font-weight: 400;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  width: 0%;
+  height: 1px;
+  background-color: #1d6686;
+  transition: .4s;
+}
+
+.input-div:before{
+right: 50%;
+}
+
+.input-div:after{
+left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+width: 50%;
+}
+
+.input-div.focus > div > h5{
+top: -5px;
+font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+color: #1d6686;
+}
+
+.input-div > div > input{
+position: absolute;
+left: 0;
+top: 5px;
+width: 100%;
+height: 100%;
+border: none;
+outline: none;
+background: none;
+font-size: 1rem;
+color: #475974;
+font-family: 'Myriad Pro Semibold';
+padding: 0px 20px 0px 0px;
+}
+
+.input-div > div > input::placeholder {
+  color: #475974;
+  opacity: 1;
+}
+
+.login_form_block .checkbox_label  {
+	font-size: 14px;
+	font-weight: 400;
+	margin-top: 20px;
+  color: #8694b5;
+}
+
+.forgot-link {
+	font-size: 17px;
+  color: #2a485e;
+  display: -webkit-inline-box;
+  font-family: 'Myriad Pro Semibold';
+}
+
+a:hover {
+	color: #30475e !important;
+	text-decoration: none !important;
+}
+
+a:hover{
+color: #38d39f;
+}
+
+.btn {
+  display: block;
+}
+
+.btn-signin {
+  padding: 7px 30px;
+  font-weight: 500;
+  border-radius: 6px;
+  font-family: 'Myriad Pro Regular';
+}
+
+.btn-recover {
+  padding: 7px 30px;
+  margin: 140px 0 0 0;
+  font-weight: 500;
+  border-radius: 6px;
+  font-family: 'Myriad Pro Regular';
+}
+
+.btn-ok {
+  padding: 7px 40px;
+  margin: 80px auto 0;
+  font-weight: 500;
+  border-radius: 20px;
+  font-family: 'Myriad Pro Regular';
+}
+
+.checkbox_label {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 70px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox_label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border: 1px solid #97aae9;
+	border-radius: 5px;
+}
+
+.checkbox_label input:checked ~ .checkmark {
+	background-color: #fff;
+	border: 1px solid #97aae9;
+	border-radius: 5px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox_label .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #d36180;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.login_left_logo1 img {
+	max-width: 170px;
+}
+.login_right_logo {
+	margin-top: 30px;
+}
+.brand-logo img {
+	max-width: 75px;
+}
+.back-to-page {
+	width: calc(50% - 20px);
+	display: inline-block;
+	text-align: left;
+  color: #99999b;
+  font-size: 14px;
+}
+.back-to-page i {
+  font-size: 12px;
+}
+.brand-logo {
+	width: calc(50% - 20px);
+	display: inline-block;
+	text-align: right;
+}
+.caption-text {
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 25px;
+}
+.alert-text {
+	font-size: 14px;
+	font-weight: 400;
+	font-style: italic;
+}
+.alert-text>.error-msg {
+  font-size: 11px;
+  color: #214579;
+}
+
+.recovery_msg_img {
+  margin-top: 10px;
+}
+.recovery_msg_img img {
+  width: 270px;
+}
+.recovery_msg_title {
+	font-size: 23px;
+	font-weight: 400;
+	margin-top: 40px;
+  color: #214579;
+	margin-bottom: 25px;
+  font-family: 'Myriad Pro Regular';
+}
+.recovery_msg_title::after {
+	content: '';
+	height: 1px;
+	width: 100px;
+	background-color: #bfcee2;
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+.recovery_msg_description {
+	font-size: 16px;
+	font-weight: 300;
+  color: #8694b4;
+	padding: 0px 140px;
+  font-family: 'Myriad Pro Regular';
+}
+
+.login_page .login_page_bg {
+  background: url('/images/trainer/Login-screen-bg.png') top left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  min-height: 730px;
+}
+
+
+/*Handle the CHROME yellow background for autofill*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none !important;
+  -webkit-text-fill-color: inherit !important;
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+svg:not(:root),
+svg {
+  display: block;
+  overflow:auto;
+}
+
+/*Scroll bars*/
+::-webkit-scrollbar {
+  width: 3px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 3px;
+  height: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.54);
+  border: 3px none rgba(0, 0, 0, 0.54);
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.64);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.54);
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  border: 2px none #fff;
+  border-radius: 1px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #fff;
+}
+::-webkit-scrollbar-track:active {
+  background: #fff;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+.checkbox-tools:checked + label, .checkbox-tools:not(:checked) + label {
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  width: 140px;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #D3D3D3;
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+  border-color: transparent;
+  border: 1px solid transparent;
+}
+.checkbox-tools:not(:checked) + label {
+  background-color: #F2F3F4;
+}
+.checkbox-tools:checked + label {
+  background-color: transparent;
+  color: #fff;
+}
+.checkbox-tools:checked + label::before,
+.checkbox-tools:not(:checked) + label::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-image: linear-gradient(97deg, #f4825e, #ee3e60);
+  z-index: -1;
+}
+.checkbox-tools:checked + label .uil, .checkbox-tools:not(:checked) + label .uil {
+  font-size: 24px;
+  line-height: 24px;
+  display: block;
+}
+.checkbox:checked ~ .section .container .row .col-12 .checkbox-tools:not(:checked) + label{
+  background-color: var(--light);
+  color: var(--dark-blue);
+  box-shadow: 0 1x 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 1050px){
+}
+@media screen and (max-width: 1000px){
+form{
+width: 290px;
+}
+.login_form_block h2{
+font-size: 2.4rem;
+margin: 8px 0;
+}
+
+.login_form_block {
+  margin-bottom: 50px;
+}
+}
+@media screen and (max-width: 900px){
+.login_form_block{
+  justify-content: center;
+}
+.login_left_block {
+  padding: 40px 0;
+}
+.login_left_text {
+  padding-top: 50px;
+}
+.login_right_logo {
+  margin: 20px 10px !important;
+}
+}
+
+@media (min-width:768px) {}
+
+@media (min-width: 1366px) {}
+
+@media (min-width:992px) and (max-width: 1023px) {
+  .flex-row-reverse {
+    flex-direction: unset !important
+  }
+}
+
+@media(max-width:1600px){}
+
+.input-div > div > h5{top:60%;}
+.input-div.focus > div > h5{display:none;}
+.login_form_block .fa-user-plus{font-size: 30px; display: flex; align-items: center; justify-content: center; padding-top: 0;}
+.login_form_block .show-error-msg{position: relative; top: -20px;}
+.input-div > div{height: auto;}
+.login_form_block .input-div.pass ~ .show-error-msg{top:5px;}
+
+
+@media(max-width:1023px){
+.login_page .login_page_bg{position: relative; top: 0; left: 0; height: 100vh; min-height: initial; height: auto !important; background-size: 150% auto !important;}
+}
+
+@media(max-width:767px){
+.recovery_msg_description{padding: 0px 40px;}
+form{margin: 0;}
+.login_right_logo{margin-right:10px;margin-top:15px;}
+.login_form_block{padding-top: 20px;}
+.login_left_logo1 img{max-width: 170px;}
+.login_left_text_title{font-size: 30px; line-height: 30px;}
+.login_left_text_description{font-size: 16px; padding-top: 10px; line-height: 20px; margin-bottom:0;}
+.login_left_text{padding-top: 10px;}
+.brand-logo img{max-width: 60px;}
+.login_form_block h2{font-size: 30px;}
+.login_form_block form{width: 100% !important;padding: 0 30px;}
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	.login_right_logo{float:right;margin-right:10px;margin-top:15px;}
+	.login_form_block{padding-top: 70px;position:absolute;}
+	.login_left_logo1 img{max-width: 170px;}
+	.login_left_text_title{font-size: 30px; line-height: 30px;}
+	.login_left_text_description{font-size: 16px; padding-top: 10px; line-height: 20px; margin-bottom:30px;}
+	.login_left_text{padding-top: 10px;}
+	.brand-logo img{max-width: 60px;}
+	.login_form_block h2{font-size: 30px;}
+}

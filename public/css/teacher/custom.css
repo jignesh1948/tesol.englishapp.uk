@@ -1,0 +1,683 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+} 
+
+/******************************************  common  ***************************************************/
+.notify-sucsess {
+  font-family: 'Myriad Pro Light';
+  font-size: 14px;
+  font-weight: 600;
+  color: #afd136;
+}
+
+.notify-sucsess i {
+  font-size: 17px;
+}
+
+/*******************************************************************************************************/
+.logout_mb {
+  color: #30485e;
+  font-size: 15px;
+}
+
+.page__title {
+  color: #30485e;
+  font-weight: 600;
+}
+
+.custom-select-dropdown {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-light-blue {
+  color: #7f8cbb;
+}
+
+.a-theme {
+  color: #30485e;
+}
+
+.custom-select-dropdown select {
+  display: none;
+}
+
+.select-selected {
+  background-color: #ffffff;
+}
+
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 16px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #000 transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #000 transparent;
+  top: 9px;
+}
+
+.select-items div {
+  color: #30485e;
+  padding: 8px 30px 8px 16px;
+  border-top-right-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  /*border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  user-select: none;*/
+}
+
+.select-selected {
+  color: #30485e;
+  padding: 5px 30px 6px 16px;
+  border-top-right-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow:ellipsis;
+  -webkit-padding-end: 30px !important;
+  -webkit-padding-start: 16px !important;
+  /*border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  user-select: none;*/
+}
+
+.select-items {
+  position: absolute;
+  background-color: #FFFFFF;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgb(247, 249, 251);
+}
+
+.tab-container-heading > ul > li > .nav-link {
+  color: #30485e;
+  text-transform: none;
+  font-size: 15px;
+}
+
+.tab-container-heading > ul > li > .nav-link:hover {
+  font-weight: 700;
+}
+
+.tab-container-heading > ul > li > .nav-link.active {
+  color: #30485e;
+  font-weight: 700;
+  background-color: #ffffff;
+  border-top-right-radius: 20px;
+  padding: .7rem 1.2rem;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 6px -2px #8c8a8a;
+}
+
+object {
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px -4px black;
+}
+
+.pdf-viewer-trainernotes {
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px -4px black;
+}
+
+.pdf-viewer-theory {
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px -4px black;
+  border : none;
+}
+
+.thumb-indicator {
+  position: absolute;
+  top: 220px;
+  left: 22.3%;
+  z-index: 10;
+  font-size: 18px;
+  background-color: #fff;
+  color: #2f465b;
+  box-shadow: 3px 0px 5px -2px #848080;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  height: 70px;
+  padding: 23px 3px;
+}
+.thumb-indicator:hover {
+  color: #2f465b;
+}
+.thumb-indicator:focus {
+  color: #2f465b;
+}
+
+.thumb-indicator-rotate {
+  left: 0%;
+  transform: rotate(180deg);
+}
+
+#thumb-hide {
+  transition: 1s;
+}
+
+#thumb-show {
+  transition: .1s;
+}
+
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+  .thumb-indicator-rotate {
+    top: 200px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  /* styles for browsers larger than 1440px; */
+  .thumb-indicator-rotate {
+    top: 234px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+  .thumb-indicator-rotate {
+    top: 234px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* styles for browsers larger than 1440px; */
+  .thumb-indicator-rotate {
+    top: 270px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+  .thumb-indicator-rotate {
+    top: 250px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* styles for browsers larger than 960px; */
+  .thumb-indicator-rotate {
+    top: 170px;
+  }
+}
+@media only screen and (min-width: 991px) {
+  /* styles for browsers larger than 960px; */
+  .thumb-indicator-rotate {
+    top: 230px;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+}
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
+}
+@media only screen and (device-width: 768px) {
+  /* default iPad screens */
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+}
+
+/*********************************  profile  ******************************************/
+.card-block-title h4{
+  color: #30485e;
+  font-size: 1.4rem;
+}
+
+.profile-details h6 {
+  padding: 3px 0 20px 0;
+  color: #7f8cbb;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: Myriad Pro Regular;
+}
+
+.edit-details span {
+  color: #7f8cbb;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: Myriad Pro Regular;
+}
+
+.sub__title {
+  font-size: 1.1rem;
+  color: #30485e;
+}
+
+.pass-change input[type=password]::placeholder {
+  color: #7f8cbb;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: Myriad Pro Regular;
+}
+
+/*********************************  feedback  ******************************************/
+
+.bold-label {
+  color: #30485e;
+  font-weight: 700;
+}
+
+.feedback-question {
+  color: #30485e;
+  font-size: 1.1rem;
+  line-height: 18px;
+}
+
+.feedback-icon {
+
+}
+
+.feedback-icon label {
+  padding: 0;
+  margin-right: 0rem;
+}
+
+.textarea-box-shadow {
+  padding: .65rem 1rem 0rem 1rem;
+  box-shadow: 0px 0px 5px -2px #4a4848;
+}
+
+.textarea-box-shadow span {
+  max-height: 150px!important;
+  display: block;
+}
+
+.textarea-box-shadow textarea::placeholder {
+  color: #30485e;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: Myriad Pro Regular;
+}
+
+.feedback-icon-fix label {
+  padding: 0;
+  margin-right: 2rem;
+}
+
+.feedback-icon-fix label img {
+  margin-right: 10px;
+}
+
+.feedback-icon-fix label span {
+  font-weight: 600;
+}
+
+.tfr-comment-block h5 {
+  font-size: 1.2rem;
+  color: #30485e;
+  margin-bottom: 15px;
+}
+
+.tfr-comment-block h6 {
+  font-size: 14px;
+  color: #30485e;
+}
+
+.tfr-comment-block h6 span {
+  width: 20px;
+  height: 5px;
+  background-color: #25a8e0;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+@media (max-width:1024px) {
+  .feedback-icon-fix label {
+    margin-right: 4rem;
+  }
+}
+
+/*********************************  work record  ******************************************/
+.lj_text p::-moz-selection {
+  background-color: #9bce4b;
+  color: #ffffff;
+}
+
+.lj_text p::selection {
+  background-color: #9bce4b;
+  color: #ffffff;
+}
+
+.lj_text p {
+  text-align: justify;
+  color: #30485e;
+  font-size: .9rem;
+  margin-bottom: 0;
+}
+
+.progress_details {
+  padding-bottom: 20px;
+  width: 85%;
+}
+
+@media (max-width:768px) {
+  .progress_details {
+    width: 100%;
+  }
+}
+
+.progress_details_heading h5 {
+  font-size: 14px;
+  color: #30485e;
+  font-weight: 600
+}
+
+.progress_details h5{
+  font-size: 14px;
+  color: #30485e;
+  font-weight: 600;
+}
+
+.progress_details p {
+  margin: 0;
+  color: #30485e;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: 'Myriad Pro Light';
+}
+
+.word-record-assessment p {
+  color: #30485e;
+}
+
+.word-record-assessment p span {
+  border-bottom: 1px solid #30485e;
+  padding: 0 20px;
+}
+
+.word-record-assessment label {
+  color: #30485e;
+  line-height: 16px;
+  font-size: 12px;
+  margin-right: .3rem;
+}
+
+.word-record-assessment .underline_p p {
+  border-bottom: 1px solid #30485e;
+  font-size: 12px;
+}
+
+.underline_p > .text-red {
+  color: red;
+}
+
+.wr_assessment_ans {
+  border-left: 1px solid #d5d5d5;
+}
+
+@media (max-width:991px) {
+  .wr_assessment_ans {
+    border-left: none;
+  }
+}
+
+.wr_assessment_ans label {
+  font-size: 13px;
+  color: #30485e;
+}
+
+.wr_assessment_ans p {
+  color: #30485e;
+  line-height: 16px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.wr_assessment_ans p span {
+  margin-right: 10px;
+}
+
+.absolute-btn {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.ass_que {
+  border-bottom: 1px solid #d5d5d5;
+}
+
+/**********************************  Teacher Home  *********************************************/
+
+.aims-point {
+  float: left;
+  width: 100%;
+}
+
+.aims-block p:first-child {
+  float: left;
+  width: 8%;
+}
+
+.aims-block p:last-child {
+  float: left;
+  width: 92%;
+}
+
+.aims-block p:first-child span {
+  width: 25px;
+  height: 30px;
+  background-color: #25a8e036;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 0 0 0;
+}
+
+.aims-block p:last-child span {
+  border: 1px solid #25a8e0;
+  border-radius: 15px;
+  padding: 8px 20px;
+  float: left;
+  color: #30485e;
+}
+
+@media (max-width:900px) {
+  .aims-block p:first-child {
+    float: left;
+    width: 12%;
+  }
+
+  .aims-block p:last-child {
+    float: left;
+    width: 88%;
+  }
+}
+
+@media (max-width:768px) {
+  .aims-block p:first-child {
+    float: left;
+    width: 10%;
+  }
+
+  .aims-block p:last-child {
+    float: left;
+    width: 90%;
+  }
+}
+
+@media (max-width:436px) {
+  .aims-block p:first-child {
+    float: left;
+    width: 12%;
+  }
+
+  .aims-block p:last-child {
+    float: left;
+    width: 88%;
+  }
+}
+
+.lj-teacher p {
+  color: #30485e;
+  line-height: 16px;
+  font-size: 12px;
+  /*font-family: 'Myriad Pro Light';
+  font-weight: 700;*/
+  margin: 0;
+}
+
+.learnerjournal-point {
+  float: left;
+  width: 100%;
+}
+
+.learnerjournal-point p:first-child {
+  float: left;
+  width: 25px;
+}
+
+.learnerjournal-point p:last-child {
+  float: left;
+  width: 90%;
+}
+
+.learnerjournal-point p:first-child span {
+  width: 20px;
+  height: 7px;
+  background-color: #25a8e036;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-radio-shape .custom-control-input:hover~.custom-control-indicator {
+  border-color: #25aae1;
+}
+
+.custom-radio-shape .custom-control-input:checked~.custom-control-indicator {
+  border-color: #25aae1;
+}
+
+.custom-radio-shape .custom-control-indicator {
+  border-radius: 2px;
+}
+.custom-radio-shape .custom-control-indicator::before {
+  content: '\f26b';
+  font-family: Material-Design-Iconic-Font;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #25aae1;
+  z-index: 1;
+  border-radius: 0px;
+  transition: background-color .2s;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.teacher-index-tab .nav-item {
+  margin-right: 5px;
+}
+
+@media (max-width:1039px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 0.5rem;
+  }
+}
+
+@media (max-width:900px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 0.5rem;
+    font-size: 14px;
+  }
+}
+
+@media (max-width:854px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 0.5rem;
+    font-size: 13px;
+  }
+}
+
+@media (max-width:814px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 0.5rem;
+    font-size: 12px;
+  }
+}
+
+@media (max-width:776px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 0.5rem;
+    font-size: 11px;
+  }
+}
+
+@media (max-width:767px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 1.2rem;
+    margin-right: 30px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width:766px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem 1.2rem;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width:414px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem .2rem;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width:375px) {
+  .teacher-index-tab .nav-item .nav-link {
+    padding: .7rem .2rem;
+    margin-right: 5px;
+    font-size: 11px;
+  }
+}
